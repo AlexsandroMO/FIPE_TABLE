@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<img src="https://conteudo.imguol.com.br/c/entretenimento/82/2016/11/01/imagem-tabela-fipe-1478017758528_v2_300x225.jpg" alt="some text" width=250 height=180>
+  
+<br>
+
+  <div align="left">
+    <h4>Fipe Table</h4>
+    <br>
+  
+
+  </div>
+      <form action = "/fipe_second" method = "POST"> 
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">
+
+          <p>Choose the Brand of the Vehicle</p>
+          <size="3">
+            <select name="veiculo" >
+            <option name = "none" value="none" selected="selected"></option>
+                {% for item in var %}
+                <option name = "car" value={{ item }}>{{ item }}</option>
+                {% endfor %}
+            </select>
+
+            </select>
+            </li>
+          </u>
+
+            <div align="center">
+            <br>
+            <br>
+            <input type=image src="http://www.colegioequipe.com.br/leopoldina/wp-content/uploads/sites/6/yellow-play-button-icon-24552.png" alt="some text" width=60 height=60height="15">   
+        </div>
+
+      </form>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+  
+
+{% endblock content %}
+
+

@@ -1,0 +1,836 @@
+{% extends "layout.html" %}
+{% block content %}
+
+      <h3>Your quote is</h3>
+      <br>
+        <div class="content-section">
+          <li class="list-group-item list-group-item-light">Your Quote Is {{uf}} {{var}} {{unidade}}</li>
+        </div>
+
+        <img src="https://www.newsbtc.com/wp-content/uploads/2019/07/bitcoin-price-trading-shutterstock_750872536-440x268.jpg" alt="some text" width=250 height=180>
+
+        <br>
+    <div align="left">
+      <h3>Coins Table</h3>
+
+        {% for table in tables %}
+          <!--{{titles[loop.index]}}-->
+          <li class="list-group-item list-group-item-light">{{ table|safe }}</li>
+        {% endfor %}
+
+      <a>{{Ass}}</a>
+      <br>
+      <a>Last updated on {{year}} | {{months}} | {{days_week}} </a>
+      </div>
+      <!--<a>Last updated on {{day_week}} {{day}} de {{month}} de {{year}}</a>-->
+      <br>
+      <br>
+
+      <p><a href="/cotation_us"><img src="https://www.tcionline.com.br/secure/hapvida/images/voltar.png" alt="some text" width=100 height=100></a></p>
+
+      <br>
+      <br>
+
+<div align="left">
+<h3>Code</h3>
+<br>
+<br>
+<body lang=PT-BR style='tab-interval:35.4pt'>
+
+<div class=WordSection1>
+  <li class="list-group-item list-group-item-light">
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>import</span></b></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> pandas <b
+    style='mso-bidi-font-weight:normal'>as</b> <span class=SpellE>pd</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>import</span></b></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> <span
+    class=SpellE>lxml</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>import</span></b></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> <span
+    class=SpellE>json</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>import</span></b></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> requests<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>from</span></b></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> bs4 <b
+    style='mso-bidi-font-weight:normal'>import</b> <span class=SpellE>BeautifulSoup</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>from</span></b></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> <span
+    class=SpellE>datetime</span> <b style='mso-bidi-font-weight:normal'>import</b>
+    date<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><b style='mso-bidi-font-weight:
+    normal'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'>from</span></b></span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'> <span class=SpellE>datetime</span> <span
+    class=SpellE><b style='mso-bidi-font-weight:normal'>import</b></span> <span
+    class=SpellE>datetime</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#Ajustes de Datas Cotações<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><b style='mso-bidi-font-weight:
+    normal'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'>def</span></b></span></span><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'> <span class=SpellE>CoinDate</span>(date):<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=SpellE>date_clock</span>
+    = <span class=GramE>date[</span>11:20:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=SpellE>date_ajust</span>
+    = <span class=GramE>date[</span>:10:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=SpellE>date_day</span>
+    = <span class=SpellE>date_<span class=GramE>ajust</span></span><span
+    class=GramE>[</span>8:10:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=SpellE>date_year</span>
+    = <span class=SpellE>date_<span class=GramE>ajust</span></span><span
+    class=GramE>[</span>:4:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=SpellE>date_month_test</span>
+    = <span class=SpellE>date_<span class=GramE>ajust</span></span><span
+    class=GramE>[</span>5:7:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=SpellE>date_date</span>
+    = '{}<span class=GramE>/{</span>}/{} {}'.format(<span class=SpellE>date_day</span>,
+    <span class=SpellE>date_month_test</span>, <span class=SpellE>date_year</span>,
+    <span class=SpellE>date_clock</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>  </span><span class=GramE><b
+    style='mso-bidi-font-weight:normal'>return</b></span> <span class=SpellE>date_date</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#===============================<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#Cotação <span
+    class=SpellE>json</span><o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#===============================<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'>lista</span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'> = <span class=SpellE>requests.get</span>('https://economia.awesomeapi.com.br/all')<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>cotation</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE>json.loads</span>(<span class=SpellE>lista.text</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'USD']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span lang=EN-US style='font-size:10.5pt;font-family:
+    Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
+    mso-fareast-language:PT-BR'>dollar</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE>cotation</span>['USD']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'USD']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>CoinDate</span></span><span class=GramE>(</span><span class=SpellE>dollar_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_cad_name</span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE><span class=GramE>cotation</span></span><span class=GramE>[</span>'CAD']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_cad</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'CAD']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_cad_date</span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE><span class=GramE>cotation</span></span><span class=GramE>[</span>'CAD']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_cad_date</span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE><span class=GramE>CoinDate</span></span><span class=GramE>(</span><span
+    class=SpellE>dollar_cad_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_aus_name</span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE><span class=GramE>cotation</span></span><span class=GramE>[</span>'AUD']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_aus</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'AUD']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_aus_date</span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE><span class=GramE>cotation</span></span><span class=GramE>[</span>'USD']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>dollar_aus_date</span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE><span class=GramE>CoinDate</span></span><span class=GramE>(</span><span
+    class=SpellE>dollar_aus_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>bitcoin_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'BTC']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>bitcoin</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE>cotation</span>['BTC']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>bitcoin_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'BTC']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>bitcoin_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>CoinDate</span></span><span class=GramE>(</span><span class=SpellE>bitcoin_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>btc</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = float(<span
+    class=SpellE>bitcoin</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>litcoin_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'LTC']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>litcoin</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE>cotation</span>['LTC']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>litcoin_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'LTC']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>litcoin_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>CoinDate</span></span><span class=GramE>(</span><span class=SpellE>litcoin_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>ltc</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = float(<span
+    class=SpellE>litcoin</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>euro_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'EUR']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span lang=EN-US style='font-size:10.5pt;font-family:
+    Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
+    mso-fareast-language:PT-BR'>euro</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE>cotation</span>['EUR']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>euro_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'EUR']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>euro_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>CoinDate</span></span><span class=GramE>(</span><span class=SpellE>euro_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>libra_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'GBP']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>libra</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE>cotation</span>['GBP']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>libra_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'GBP']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>libra_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>CoinDate</span></span><span class=GramE>(</span><span class=SpellE>libra_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>peso_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'ARS']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span lang=EN-US style='font-size:10.5pt;font-family:
+    Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
+    mso-fareast-language:PT-BR'>peso</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE>cotation</span>['ARS']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>peso_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'ARS']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>peso</span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'>_date</span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'> = <span class=SpellE>CoinDate</span>(<span
+    class=SpellE>peso_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>iene_name</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'JPY']['name']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>iene</span></span></span><span
+    lang=EN-US style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span
+    class=SpellE>cotation</span>['JPY']['high']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>iene_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>cotation</span></span><span class=GramE>[</span>'JPY']['<span
+    class=SpellE>create_date</span>']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>iene_date</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>CoinDate</span></span><span class=GramE>(</span><span class=SpellE>iene_date</span>)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span lang=EN-US style='font-size:10.5pt;font-family:
+    Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
+    mso-fareast-language:PT-BR'>dados</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = [ [<span class=SpellE>dollar_name</span>,
+    dollar, <span class=SpellE>dollar_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>          </span>[<span class=SpellE>dollar_cad_name</span>,
+    <span class=SpellE>dollar_cad</span>, <span class=SpellE>dollar_cad_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>          </span>[<span class=SpellE>dollar_aus_name</span>,
+    <span class=SpellE>dollar_aus</span>, <span class=SpellE>dollar_aus_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>          </span>[<span class=SpellE>bitcoin_name</span>,
+    <span class=SpellE>btc</span>, <span class=SpellE>bitcoin_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>          </span>[<span class=SpellE>litcoin_name</span>,
+    <span class=SpellE>ltc</span>, <span class=SpellE>litcoin_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>          </span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'>[<span class=SpellE><span class=GramE>euro</span>_name</span>,
+    euro, <span class=SpellE>euro_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><span
+    style='mso-spacerun:yes'>          </span>[<span class=SpellE><span
+    class=GramE>libra</span>_name</span>, libra, <span class=SpellE>libra_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><span
+    style='mso-spacerun:yes'>          </span>[<span class=SpellE><span
+    class=GramE>peso</span>_name</span>, peso, <span class=SpellE>peso_date</span>],<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><span
+    style='mso-spacerun:yes'>          </span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'>[<span class=SpellE>iene_name</span>,
+    <span class=SpellE>iene</span>, <span class=SpellE>iene_date</span>]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><span style='mso-spacerun:yes'>        </span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'>]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'>header</span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'> = ['Moeda', 'Valor', 'Data Cotação']<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>df</span></span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'> = <span
+    class=SpellE>pd.DataFrame</span>(data=dados, <span class=SpellE>columns</span>=header)<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#===============================<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#Relógio Calendário<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";color:#F4B183;mso-themecolor:accent2;mso-themetint:153;
+    mso-style-textfill-fill-color:#F4B183;mso-style-textfill-fill-themecolor:accent2;
+    mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+    "lumm=60000 lumo=40000";mso-fareast-language:PT-BR'>#===============================<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>hj</span></span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'> = <span
+    class=SpellE>date.today</span>()<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>data</span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'>_em_texto</span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'> = <span class=SpellE>hj.strftime</span>('%d/%m/%Y')<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>hj</span></span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'> = <span
+    class=SpellE>date.today</span>()<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'>dias</span></span><span
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-fareast-language:PT-BR'> = ('Segunda-Feira', 'Terça-Feira', 'Quarta-Feira',
+    'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo')<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>mes</span></span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'> = ('Janeiro',
+    'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+    'Novembro', 'Dezembro')<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:
+    "Times New Roman";mso-fareast-language:PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'>days = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+    'Sunday')<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>month_s</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = ('January', 'February', 'March',
+    'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>day_week</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE><span
+    class=GramE>dias</span></span><span class=GramE>[</span><span class=SpellE>hj.weekday</span>()]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>days_week</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=GramE>days[</span><span
+    class=SpellE>hj.weekday</span>()]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>day</span></span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'> = <span
+    class=SpellE>data_em_texto</span>[:2:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span class=GramE><span style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-fareast-language:
+    PT-BR'>year</span></span></span><span style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-fareast-language:PT-BR'> = <span
+    class=SpellE>data_em_texto</span>[6:10:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=SpellE><span lang=EN-US style='font-size:10.5pt;
+    font-family:Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:
+    EN-US;mso-fareast-language:PT-BR'>month_test</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE>data_em_<span
+    class=GramE>texto</span></span><span class=GramE>[</span>3:5:]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span lang=EN-US style='font-size:10.5pt;font-family:
+    Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
+    mso-fareast-language:PT-BR'>month</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE>mes</span>[<span
+    class=SpellE>int</span>(<span class=SpellE>month_test</span>[1]) - 1]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span class=GramE><span lang=EN-US style='font-size:10.5pt;font-family:
+    Consolas;mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;
+    mso-fareast-language:PT-BR'>months</span></span><span lang=EN-US
+    style='font-size:10.5pt;font-family:Consolas;mso-fareast-font-family:"Times New Roman";
+    mso-ansi-language:EN-US;mso-fareast-language:PT-BR'> = <span class=SpellE>month_s</span>[<span
+    class=SpellE>int</span>(<span class=SpellE>month_test</span>[1]) - 1]<o:p></o:p></span></p>
+
+    <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+    14.25pt'><span lang=EN-US style='font-size:10.5pt;font-family:Consolas;
+    mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:
+    PT-BR'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </li>
+</div>
+</div>
+
+{% endblock content %}
+

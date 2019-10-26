@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<img src="https://conteudo.imguol.com.br/c/entretenimento/82/2016/11/01/imagem-tabela-fipe-1478017758528_v2_300x225.jpg" alt="some text" width=250 height=180>
+  
+<br>
+
+  <div align="left">
+    <h4>Fipe Table</h4>
+    <br>
+    <br>
+    <br>
+    <p>Car List</p>
+    <ul class="list-group">
+
+        {% for table in tables %}
+          <li class="list-group-item list-group-item-light">{{ table|safe }}</li>
+        {% endfor %}
+
+          </u>
+      <br>
+      <br>
+      <a href="http://fipeapi.appspot.com" target="_blank"><p>Updated Data Direct From Fipe Website</p></a>
+      <br>
+            <div align="center">
+            <br>
+            <br>
+            <a href="/home_us"><input type=image src="http://www.colegioequipe.com.br/leopoldina/wp-content/uploads/sites/6/yellow-play-button-icon-24552.png" alt="some text" width=60 height=60height="15"></a>   
+        </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  
+
+{% endblock content %}
+
+

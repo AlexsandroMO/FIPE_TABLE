@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1>Cotation</h1>
+  <br>
+
+<img src="https://s3.amazonaws.com/igd-wp-uploads-pluginaws/wp-content/uploads/2018/06/12134812/aprenda-fazer-uma-cotacao-de-precos-eficaz.jpeg" alt="some text" width=300 height=200>
+
+<br>
+
+  <div align="left">
+    <h4>Daily Quotation</h4>
+    <br>
+  </div>
+      <form action = "/resultcotation" method = "POST">
+
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">
+
+          <p>Dollar / Real:
+          <size="3">
+          <select name="moeda" >
+          <option name = "none" value="none" selected="selected"></option>
+          <option name = "dolar" value="dolar">Dolar / Real</option>
+          <option name = "dolar" value="real" >Real / Dolar</option>
+        </select>
+            <br>
+            <br>
+
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp
+               <input type = "text" size="12" name = "dolar-real" placeholder="Value"/></p>
+            </li>
+          </ul>
+
+            <br>
+                 <input type=image src="http://www.colegioequipe.com.br/leopoldina/wp-content/uploads/sites/6/yellow-play-button-icon-24552.png" alt="some text" width=60 height=60height="15">
+
+
+      </form>
+      <br>
+      <br>
+  
+
+{% endblock content %}
+
+
+
